@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f4efe5">
+<meta name="description" content="周雨彤的个人数字作品杂志。精选数据新闻、新媒体运营、AIGC 视频与交互设计实践。">
+<title>周雨彤 — PORTFOLIO 2026</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23832930'/%3E%3Cpath d='M16 5v22M5 16h22M8 8l16 16M24 8L8 24' stroke='%23f4efe5' stroke-width='1.4'/%3E%3C/svg%3E">
+<style>
+  /* Paper, ink, and the shared typesetting grid */
+  :root {
+    --paper:#f4efe5; --wash:#eae2d5; --ink:#27221f; --muted:#5e544a;
+    --rule:#a99b8b; --fine:#c8baaa; --accent:#832930; --red:#72282e;
+    --green:#303d33; --cream:#efe4d1;
+    --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,"Songti SC",Georgia,serif;
+    --display:"Times New Roman",Times,serif;
+    --cn:"Songti SC","Noto Serif CJK SC","Source Han Serif SC",STSong,SimSun,serif;
+    --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+    --mono:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+    --measure:min(100% - clamp(2.5rem, 11vw, 12rem), 82rem);
+  }
+  *,*::before,*::after { box-sizing:border-box }
+  html { scroll-behavior:smooth }
+  body { margin:0; color:var(--ink); background:var(--paper); font:1rem/1.8 var(--sans); }
+  ::selection { color:white; background:var(--accent) }
+  h1,h2,h3,h4,p,figure,dl,dd { margin:0 }
+  h1,h2,h3 { font-weight:500 }
+  img,video,svg { display:block; max-width:100% }
+  a { color:inherit; text-underline-offset:.24em }
+  a:focus-visible,button:focus-visible,video:focus-visible,.chart-scroll:focus-visible { outline:2px solid var(--accent); outline-offset:5px }
+  a { -webkit-tap-highlight-color:#83293022 }
+  [id] { scroll-margin-top:1.6rem }
+  .wrap { width:var(--measure); margin-inline:auto }
+  .meta { font:500 .71rem/1.5 var(--mono); text-transform:uppercase; letter-spacing:.115em }
+  .muted { color:var(--muted) }
+  .red { color:var(--accent) }
+  .sr { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; border:0 }
+  .skip { position:fixed; top:1rem; left:1rem; z-index:10; background:var(--paper); color:var(--accent); padding:.6rem 1rem; transform:translateY(-180%) }
+  .skip:focus { transform:translateY(0) }
+  .small-link { display:inline-flex; align-items:center; gap:.7rem; font-size:.82rem; font-weight:650; text-decoration:none; border-bottom:1px solid currentColor; padding-block:.35rem .5rem; width:fit-content; min-height:2.7rem; }
+  .small-link .arr,.contents-link .arr { transition:transform .22s ease; }
+  .small-link:hover { color:var(--accent) }
+  .small-link:hover .arr,.contents-link:hover .arr { transform:translate(.17em,-.14em) }
+  .arr { font-family:var(--sans); line-height:1; }
+  .label-pair { display:flex; align-items:center; gap:.7rem }
+  .mark { width:.55rem; height:.55rem; flex:none; background:var(--accent); transform:rotate(45deg); }
+  .folio { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.85rem 0; color:var(--muted); }
+  .folio > :last-child { text-align:right }
+  .note { font-size:.8rem; line-height:1.7; color:var(--muted) }
+
+  /* Issue cover */
+  .masthead { border-top:5px solid var(--accent); }
+  .mast-row { min-height:4.55rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; border-bottom:1px solid var(--fine); }
+  .mast-brand { display:inline-flex; align-items:center; gap:.75rem; text-decoration:none; }
+  .mast-brand:hover { color:var(--accent); }
+  .mast-name { font:italic 1.4rem/1 var(--serif); white-space:nowrap; }
+  .mast-nav { display:flex; align-items:center; gap:clamp(1rem,3vw,2.9rem); }
+  .mast-nav a { text-decoration:none; display:flex; min-height:2.8rem; align-items:center; font-size:.83rem; white-space:nowrap; }
+  .mast-nav a:hover { color:var(--accent); text-decoration:underline; }
+  .cover { padding-top:clamp(2rem,5.2vh,4rem); animation:enter .65s ease both; }
+  .cover .folio-top { border-bottom:1px solid var(--rule); }
+  .title-row { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:baseline; gap:clamp(.65rem,2.3vw,2.2rem); border-bottom:1px solid var(--rule); padding:.6rem 0 1.05rem; }
+  .wordmark { font:400 clamp(2.5rem,14.5vw,13.8rem)/.91 var(--display); letter-spacing:-.074em; margin-inline-start:-.04em; white-space:nowrap; }
+  .year { color:var(--accent); font:italic clamp(1.4rem,5vw,4.85rem)/1 var(--display); letter-spacing:-.055em; }
+  .cover-grid { display:grid; grid-template-columns:.81fr 1.19fr; align-items:stretch; gap:clamp(1.4rem,4.5vw,4.9rem); padding:clamp(1.25rem,3.1vw,2.8rem) 0; }
+  .cover-intro { display:flex; flex-direction:column; align-items:flex-start; justify-content:space-between; padding:.25rem 0 .1rem; }
+  .name { font:600 clamp(3.3rem,6.9vw,6.5rem)/1.06 var(--cn); letter-spacing:.015em; margin:.8rem 0 1rem; }
+  .cover-theme { font:500 clamp(1.1rem,2.1vw,1.7rem)/1.65 var(--cn); }
+  .cover-scroll { color:var(--accent); margin-top:1rem; }
+  .cover-art { min-width:0; align-self:center; }
+  .cover-art svg { width:100%; height:auto; background:var(--red); }
+  .cover .folio-bottom { border-top:1px solid var(--rule); border-bottom:1px solid var(--fine); }
+  @keyframes enter { from { opacity:0; transform:translateY(6px) } to { opacity:1; transform:translateY(0) } }
+
+  /* Section headings and the editorial index */
+  .section-space { margin-top:clamp(4.5rem,10vw,9.5rem); }
+  .section-kicker { display:flex; justify-content:space-between; gap:1rem; border-top:1px solid var(--rule); padding-top:.75rem; }
+  .section-title { font:400 clamp(3.2rem,7.1vw,6.55rem)/.93 var(--display); letter-spacing:-.062em; }
+  .section-cn { color:var(--accent); font:600 clamp(1.15rem,2vw,1.6rem)/1.3 var(--cn); letter-spacing:.12em; }
+  .heading-group { display:flex; flex-wrap:wrap; align-items:baseline; column-gap:1.35rem; row-gap:.65rem; margin:1.5rem 0 2.3rem; }
+  .about-grid { display:grid; grid-template-columns:1fr 1.45fr; gap:clamp(1.5rem,8vw,8.5rem); padding-top:1.25rem; }
+  .about-grid .heading-group { display:block; margin:0; }
+  .about-grid .section-cn { display:block; margin-top:1rem; }
+  .about-text { font:500 clamp(1.17rem,2vw,1.55rem)/1.83 var(--cn); }
+  .about-text p + p { margin-top:1rem; font:400 .96rem/1.9 var(--sans); color:var(--muted); }
+  .about-text::before { content:""; display:block; width:2.35rem; border-top:2px solid var(--accent); margin-bottom:1.15rem; }
+  .about-skills { display:flex; flex-wrap:wrap; gap:.4rem .65rem; margin:1.35rem 0 0; padding:.85rem 0 0; list-style:none; border-top:1px solid var(--fine); color:var(--muted); font:500 .82rem/1.55 var(--sans); }
+  .about-skills li { white-space:nowrap; }
+  .about-skills span { margin-inline-start:.65rem; color:var(--accent); }
+  .contents { display:grid; }
+  .contents-link { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.24fr); gap:clamp(1.5rem,5vw,5.5rem); align-items:center; padding:clamp(1.35rem,3.3vw,3rem) 0; border-top:1px solid var(--fine); text-decoration:none; }
+  .contents-link:last-child { border-bottom:1px solid var(--fine); }
+  .contents-link.is-reversed { grid-template-columns:minmax(0,1.24fr) minmax(0,1fr); }
+  .contents-link.is-reversed .contents-copy { grid-column:2; grid-row:1; }
+  .contents-copy { padding-block:.5rem; }
+  .contents-number { color:var(--accent); font:italic clamp(2.3rem,4.5vw,4.2rem)/1 var(--display); letter-spacing:-.055em; }
+  .contents-title { font:600 clamp(2rem,4.55vw,4.1rem)/1.19 var(--cn); letter-spacing:-.035em; margin:.4rem 0 .6rem; }
+  .contents-title em { font:italic 1.14em/.9 var(--display); }
+  .contents-type { color:var(--accent); font-size:.78rem; font-weight:600; }
+  .contents-copy p { max-width:31ch; color:var(--muted); margin:.75rem 0 1rem; line-height:1.75; font-size:.94rem; }
+  .contents-cta { display:inline-flex; align-items:center; gap:.75rem; border-bottom:1px solid currentColor; font-size:.82rem; font-weight:650; padding:.1rem 0 .25rem; }
+  .contents-link:hover .contents-cta { color:var(--accent); }
+  .thumb { overflow:hidden; aspect-ratio:1.72; border:1px solid #00000017; position:relative; display:grid; place-items:center; }
+  .thumb img { transition:transform .5s ease; }
+  .contents-link:hover .thumb img { transform:scale(1.035); }
+  .thumb-apple { background:#ede0bb; }
+  .thumb-apple img { width:100%; height:100%; object-fit:cover; }
+  .thumb-ebike { grid-template-columns:1fr 1fr; background:#dce4df; padding:4% 7%; gap:5%; align-items:center; }
+  .thumb-ebike { grid-template-rows:minmax(0,1fr); }
+  .thumb-ebike img:first-child { width:100%; height:100%; max-height:100%; object-fit:cover; object-position:top center; border:1px solid #43594c40; }
+  .thumb-ebike img:last-child { width:100%; aspect-ratio:1.07; object-fit:cover; border:1px solid #43594c40; }
+  .thumb-ebike img { min-height:0; }
+  .thumb-reader { background:#e3dcc9; padding:5% 7%; }
+  .reader-index { position:relative; }
+  .reader-index .contents-cta { text-decoration:none; }
+  .reader-index .contents-cta::after { content:""; position:absolute; inset:0; }
+  .reader-frame { display:block; width:100%; border:1px solid #34443736; height:100%; background:#efe4d1; pointer-events:none; }
+  .thumb-reader .reader-frame { box-shadow:0 10px 22px #2e38221d; }
+  .preview-label { position:absolute; bottom:.65rem; right:.65rem; background:var(--green); color:var(--cream); padding:.2rem .5rem; font-size:.68rem; }
+
+  /* Long-form features */
+  .details { margin-top:clamp(5rem,11vw,10rem); }
+  .features > article + article { margin-top:clamp(5rem,11vw,10.5rem); }
+  .feature-top { border-top:2px solid var(--ink); padding-top:.7rem; display:flex; justify-content:space-between; align-items:baseline; gap:1rem; }
+  .feature-head { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(0,1fr); align-items:end; gap:clamp(1.2rem,5.5vw,6rem); padding:clamp(1.5rem,4vw,3.6rem) 0; }
+  .feature-title { font:600 clamp(2.8rem,6.3vw,6.25rem)/1.05 var(--cn); letter-spacing:-.045em; }
+  .feature-title em { font:italic 1.14em/.9 var(--display); }
+  .feature-subtitle { color:var(--accent); margin-top:.55rem; font:600 clamp(1.04rem,1.8vw,1.45rem)/1.45 var(--cn); }
+  .feature-deck { color:var(--muted); max-width:40ch; }
+  .feature-copy { min-width:0; }
+  .feature-copy h4,.media-label { color:var(--accent); font-size:.78rem; letter-spacing:.09em; font-weight:650; margin:0 0 .55rem; }
+  .feature-copy p { font-size:.95rem; }
+  .feature-copy p + h4,.feature-copy ul + h4 { margin-top:1.4rem; }
+  .feature-copy ul { padding-inline-start:1.1rem; margin:0; font-size:.92rem; }
+  .feature-copy .small-link { margin-top:1.4rem; }
+  .feature-copy .note { margin-top:.9rem; font-size:.8rem; }
+  .apple-grid { display:grid; grid-template-columns:minmax(0,1.65fr) minmax(0,1fr); gap:clamp(1.5rem,5vw,5rem); align-items:center; }
+  .plate-apple { display:block; background:#e9ddc7; border:1px solid #ccbfa7; padding:clamp(.6rem,2vw,1.4rem); overflow:hidden; text-decoration:none; }
+  .plate-apple img { width:100%; height:auto; }
+  .chart-action { display:flex; justify-content:flex-end; align-items:center; gap:.45rem; margin-top:.55rem; color:var(--accent); font-size:.77rem; font-weight:650; }
+  .chart-action .arr { font-size:1rem; }
+  .pdf-actions { display:flex; flex-wrap:wrap; align-items:baseline; gap:.4rem 1.25rem; margin-top:1.35rem; }
+  .feature-copy .pdf-actions .small-link { margin-top:0; }
+  .pdf-download { font-size:.8rem; color:var(--muted); padding:.45rem 0; }
+  .pdf-download:hover { color:var(--accent); }
+  figcaption { margin-top:.65rem; display:flex; align-items:baseline; gap:.6rem; color:var(--muted); font-size:.77rem; line-height:1.5; }
+  .fig-no { font-size:.67rem; color:var(--accent); white-space:nowrap; }
+  .bike-grid { display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.7fr); gap:clamp(1.6rem,5.5vw,6rem); align-items:start; }
+  .account-plate { padding:clamp(.7rem,1.6vw,1.2rem); background:#e3e8e0; border:1px solid #bcc6bb; }
+  .account-plate img { width:min(100%, 17.5rem); height:auto; margin-inline:auto; }
+  @media (hover:hover) and (pointer:fine) {
+    .plate-apple,.account-plate { transition:border-color .22s ease; }
+    .plate-apple img,.account-plate img { transition:transform .26s ease; }
+    .plate-apple:hover,.account-plate:hover { border-color:var(--accent); }
+    .plate-apple:hover img,.account-plate:hover img { transform:scale(1.012); }
+  }
+  .bike-copy { margin-top:1.45rem; }
+  .screening { border-top:1px solid var(--fine); }
+  .screening-head { display:flex; justify-content:space-between; gap:.75rem; padding:.8rem 0; align-items:baseline; }
+  .screening-head h4 { font:600 1.34rem/1.3 var(--cn); }
+  .screening-grid { display:grid; grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr); gap:clamp(.75rem,1.8vw,1.5rem); align-items:start; }
+  .horizontal-reels { display:grid; gap:1.15rem; }
+  video { width:100%; height:auto; aspect-ratio:16/9; object-fit:contain; background:#292824; border:1px solid #0002; }
+  .reel.portrait video { aspect-ratio:9/16; }
+  .reel figcaption { display:block; margin-top:.47rem; }
+  .reel figcaption strong { display:block; font-size:.85rem; color:var(--ink); margin-top:.2rem; }
+  .reel figcaption a { display:inline-block; margin-top:.2rem; min-height:1.5rem; }
+  .reel figcaption a:hover { color:var(--accent); }
+  .reader-stage { background:var(--green); color:var(--cream); padding:clamp(1rem,3vw,3rem); border:1px solid #29372c; }
+  .reader-stage .reader-frame { width:min(100%, 61rem); height:clamp(24rem,53vw,35rem); margin-inline:auto; box-shadow:0 .75rem 2.25rem #15201688; }
+  .reader-stage figcaption { color:var(--cream); }
+  .reader-stage .fig-no { color:#e9c8a3; }
+  .reader-copy { display:grid; grid-template-columns:1fr 1fr; gap:clamp(1.5rem,5.5vw,5.5rem); margin-top:1.85rem; }
+  .reader-copy .usage { border-left:1px solid var(--fine); padding-left:clamp(1.2rem,3vw,2.5rem); }
+  .reader-copy .usage .small-link { margin-top:.75rem; }
+
+  /* High-resolution chart, with room to pan on small screens. */
+  body:has(.chart-dialog[open]) { overflow:hidden; }
+  .chart-dialog { width:min(62rem,100% - 2rem); max-width:none; max-height:90vh; max-height:90dvh; margin:auto; padding:0; overflow:hidden; border:1px solid var(--rule); background:var(--paper); color:var(--ink); }
+  .chart-dialog:not([open]) { display:none; }
+  .chart-dialog[open] { display:flex; flex-direction:column; }
+  .chart-dialog::backdrop { background:#27221fc9; }
+  .chart-dialog-head { display:flex; flex:none; justify-content:space-between; align-items:center; gap:.85rem; padding:.8rem clamp(.75rem,3vw,1.35rem); border-bottom:1px solid var(--fine); }
+  .chart-dialog h2 { font:600 clamp(1.08rem,3vw,1.48rem)/1.4 var(--cn); }
+  .chart-dialog-head .note { font-size:.73rem; }
+  .chart-close { display:block; min-height:2.75rem; padding:.35rem .7rem; border:1px solid var(--rule); background:transparent; color:var(--accent); font:600 .78rem/1.3 var(--sans); white-space:nowrap; cursor:pointer; }
+  .chart-close:hover { border-color:var(--accent); background:var(--wash); }
+  .chart-scroll { flex:1 1 auto; min-height:0; overflow:auto; overscroll-behavior:contain; padding:clamp(.65rem,2vw,1.15rem); background:var(--wash); }
+  .chart-scroll:focus-visible { outline-offset:-3px; }
+  .chart-scroll img { width:100%; min-width:38rem; max-width:none; height:auto; }
+
+  /* Colophon */
+  .colophon { margin-top:clamp(5rem,11vw,10rem); background:#eae2d5; border-top:1px solid var(--rule); }
+  .colophon-main { padding:clamp(2.4rem,5.2vw,4.8rem) 0; display:grid; grid-template-columns:1fr auto; gap:1rem; align-items:end; }
+  .colophon-title { font:600 clamp(1.8rem,4.25vw,3.85rem)/1.15 var(--cn); margin:.7rem 0 .35rem; }
+  .colophon-title span { font:italic 400 .82em/.95 var(--display); white-space:nowrap; }
+  .colophon .folio { border-top:1px solid var(--rule); }
+  .colophon .small-link { margin-bottom:.15rem; }
+
+  @media (max-width:920px) {
+    .cover-grid { grid-template-columns:.9fr 1.1fr; gap:1.35rem; }
+    .wordmark { font-size:14vw; }
+    .contents-link,.contents-link.is-reversed { gap:1.7rem; }
+    .bike-grid { grid-template-columns:minmax(0, .85fr) minmax(0,1.25fr); gap:1.7rem; }
+    .screening-grid { grid-template-columns:1fr; }
+    .reel.portrait { width:min(72%,15rem); }
+  }
+  @media (max-width:640px) {
+    :root { --measure:calc(100% - 2.25rem); }
+    .masthead { border-top-width:4px; }
+    .mast-row { min-height:3.65rem; gap:.4rem; }
+    .mast-brand { gap:.5rem; }
+    .mast-name { font-size:1.16rem; }
+    .mast-nav { gap:clamp(.65rem,3.5vw,1.3rem); }
+    .mast-nav a { font-size:.74rem; }
+    .cover { padding-top:1.9rem; }
+    .folio { gap:.5rem; }
+    .folio .meta { font-size:.59rem; letter-spacing:.065em; }
+    .folio-top .meta:first-child { max-width:68%; }
+    .title-row { gap:.4rem; padding:.62rem 0 .63rem; }
+    .wordmark { font-size:13.05vw; }
+    .year { font-size:6.25vw; }
+    .cover-grid,.about-grid,.contents-link,.contents-link.is-reversed,.feature-head,.apple-grid,.bike-grid,.reader-copy { grid-template-columns:minmax(0,1fr); }
+    .cover-intro { min-height:0; }
+    .name { margin:.35rem 0 .45rem; }
+    .cover-scroll { margin-top:.45rem; }
+    .about-grid { gap:1.45rem; }
+    .about-grid .section-cn { margin-top:.65rem; }
+    .heading-group { margin:1.25rem 0 1.6rem; }
+    .contents-link,.contents-link.is-reversed { gap:.7rem; }
+    .contents-link.is-reversed .contents-copy { grid-column:auto; grid-row:auto; }
+    .contents-copy p { margin:.55rem 0 .6rem; }
+    .contents-title { margin:.22rem 0 .4rem; }
+    .feature-head { gap:.85rem; }
+    .reel.portrait { width:min(66%,14rem); }
+    .thumb-reader { aspect-ratio:auto; min-height:20rem; }
+    .reader-copy .usage { border-left:0; border-top:1px solid var(--fine); padding:1rem 0 0; }
+    .colophon-main { grid-template-columns:1fr; gap:.75rem; }
+  }
+  @media (max-width:380px) {
+    .mast-name { font-size:1rem; }
+    .mast-nav { gap:.65rem; }
+  }
+  @media (prefers-reduced-motion:reduce) {
+    *,*::before,*::after { scroll-behavior:auto !important; animation:none !important; transition:none !important; }
+  }
+</style>
+</head>
+<body id="top">
+<a class="skip" href="#main">跳至正文</a>
+<header class="masthead">
+  <div class="mast-row wrap">
+    <a class="mast-brand" href="#top" aria-label="周雨彤，返回封面"><span class="mark" aria-hidden="true"></span><span class="mast-name" lang="en">Yutong Zhou</span></a>
+    <nav class="mast-nav" aria-label="主要导航">
+      <a href="#about">关于</a>
+      <a href="#works">作品</a>
+      <a href="#colophon">刊末</a>
+    </nav>
+  </div>
+</header>
+<main id="main" tabindex="-1">
+  <section class="cover wrap" aria-labelledby="cover-heading">
+    <div class="folio folio-top"><span class="meta" lang="en">Journalism / New Media / AIGC / Interaction</span><span class="meta" lang="en">Selected Works</span></div>
+    <h1 id="cover-heading" class="title-row"><span class="sr">周雨彤 — </span><span class="wordmark" lang="en">PORTFOLIO</span><span class="year">2026</span></h1>
+    <div class="cover-grid">
+      <div class="cover-intro">
+        <div>
+          <p class="meta red" lang="en">Vol. 01 / 2026 Edition</p>
+          <p class="name" aria-hidden="true">周雨彤</p>
+          <p class="cover-theme">在内容与技术之间，<br>探索新的表达方式。</p>
+        </div>
+        <a href="#works" class="small-link cover-scroll"><span class="arr" aria-hidden="true">↓</span> 翻阅作品</a>
+      </div>
+      <figure class="cover-art" aria-hidden="true">
+        <svg viewBox="0 0 680 360" xmlns="http://www.w3.org/2000/svg" focusable="false">
+          <defs>
+            <pattern id="cover-dots" width="4" height="4" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".42" fill="#fff1d4" opacity=".47"/></pattern>
+            <pattern id="cover-hatch" width="3.8" height="3.8" patternUnits="userSpaceOnUse"><path d="M0 1h3.8" stroke="#edd3aa" stroke-width=".87"/></pattern>
+            <pattern id="cover-ink" width="3.5" height="3.5" patternUnits="userSpaceOnUse"><path d="M0 0h3.5" stroke="#70282c" stroke-width="1"/></pattern>
+            <clipPath id="cover-mask"><circle cx="390" cy="183" r="116"/></clipPath>
+          </defs>
+          <path fill="#72282e" d="M0 0h680v360H0z"/>
+          <path fill="url(#cover-dots)" opacity=".42" d="M0 0h680v360H0z"/>
+          <g fill="none" stroke="#f1d8b7" stroke-width=".7">
+            <path opacity=".42" d="M25 25h630v310H25z M25 181h630 M341 25v310"/>
+            <ellipse cx="341" cy="181" rx="221" ry="76" transform="rotate(-16 341 181)" opacity=".6"/>
+            <ellipse cx="341" cy="181" rx="221" ry="76" transform="rotate(16 341 181)" opacity=".32"/>
+            <path opacity=".8" d="M16 25h18m-9-9v18m621-9h18m-9-9v18M16 335h18m-9-9v18m621-9h18m-9-9v18"/>
+          </g>
+          <circle cx="277" cy="180" r="116" fill="url(#cover-hatch)" stroke="#edceaa" stroke-width=".9"/>
+          <circle cx="390" cy="183" r="116" fill="#e9cda5" stroke="#edceaa" stroke-width=".9"/>
+          <circle cx="277" cy="180" r="116" fill="url(#cover-ink)" clip-path="url(#cover-mask)"/>
+          <g stroke="#72282e" stroke-width=".65" opacity=".42" fill="none" clip-path="url(#cover-mask)">
+            <circle cx="390" cy="183" r="89"/><circle cx="390" cy="183" r="66"/><circle cx="390" cy="183" r="44"/>
+            <path d="M390 62v242m-121-121h242"/>
+          </g>
+          <g fill="#f1d8b7" font-family="monospace" font-size="9" letter-spacing="1.4">
+            <text x="42" y="48">FIG. 00</text><text x="42" y="317">CONTENT</text>
+            <text x="638" y="48" text-anchor="end">STUDY IN TWO FORMS</text>
+            <text x="638" y="317" text-anchor="end">TECHNOLOGY</text>
+          </g>
+          <path fill="none" stroke="#f6e7cc" stroke-width="1" d="M333 168v24m-12-12h24m-20-8 16 16m0-16-16 16"/>
+        </svg>
+      </figure>
+    </div>
+    <div class="folio folio-bottom"><span class="meta" lang="en">An independent portfolio</span><span class="meta" lang="en">Cover / 01</span></div>
+  </section>
+
+  <section class="about wrap section-space" id="about" aria-labelledby="about-title">
+    <div class="section-kicker meta muted"><span class="label-pair"><span class="mark" aria-hidden="true"></span> 01 / <span lang="en">Editor’s Note</span></span><span lang="en">About</span></div>
+    <div class="about-grid">
+      <h2 class="heading-group" id="about-title"><span class="section-title" lang="en">About me</span><span class="section-cn">关于我</span></h2>
+      <div class="about-text">
+        <p>我关注内容如何被创造、组织与传播，也对技术如何改变表达方式保持好奇。从数据新闻中的可视化叙事，到公众号与短视频内容创作，再到 AI 辅助开发的交互工具，我尝试在不同媒介之间寻找更有趣、更有效的表达方式。</p>
+        <p>目前的实践方向包括数据新闻、新媒体内容运营、AIGC 视频创作和网页交互设计。</p>
+        <ul class="about-skills" role="list" aria-label="能力关键词">
+          <li>内容策划<span aria-hidden="true">/</span></li>
+          <li>数据可视化<span aria-hidden="true">/</span></li>
+          <li>新媒体运营<span aria-hidden="true">/</span></li>
+          <li>AIGC 视频创作<span aria-hidden="true">/</span></li>
+          <li>网页交互设计</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section-space" id="works" aria-labelledby="works-title">
+    <div class="section-kicker meta muted"><span class="label-pair"><span class="mark" aria-hidden="true"></span> 02 / <span lang="en">Contents</span></span><span lang="en">03 projects</span></div>
+    <h2 class="heading-group" id="works-title"><span class="section-title" lang="en">Selected works</span><span class="section-cn">精选作品</span></h2>
+    <div class="contents">
+      <a class="contents-link" href="#apple" aria-labelledby="index-apple action-apple">
+        <div class="contents-copy">
+          <span class="contents-number" aria-hidden="true">01</span>
+          <h3 class="contents-title" id="index-apple">苹果味出走记</h3>
+          <div class="contents-type">数据新闻 / 数据可视化 / 互动叙事</div>
+          <p>从营养信息和消费文化出发，追问「苹果味」与真实苹果的关系。</p>
+          <span class="contents-cta" id="action-apple">查看详情 <span class="arr" aria-hidden="true">↗</span></span>
+        </div>
+        <div class="thumb thumb-apple"><img src="assets/previews/apple-cover.webp" width="1100" height="581" alt="《苹果味出走记》原作封面节选" loading="lazy" decoding="async"></div>
+      </a>
+      <a class="contents-link is-reversed" href="#ebike" aria-labelledby="index-bike action-bike">
+        <div class="contents-copy">
+          <span class="contents-number" aria-hidden="true">02</span>
+          <h3 class="contents-title" id="index-bike"><em lang="en">ebike</em>益骑行</h3>
+          <div class="contents-type">新媒体运营 / 微信公众号 / 视频号 / AIGC</div>
+          <p>用图文与短视频传递电动自行车行业资讯和骑行安全知识。</p>
+          <span class="contents-cta" id="action-bike">查看详情 <span class="arr" aria-hidden="true">↗</span></span>
+        </div>
+        <div class="thumb thumb-ebike">
+          <img src="assets/ebike-account.png" width="1086" height="1608" alt="ebike益骑行微信公众号主页截图" loading="lazy" decoding="async">
+          <img src="assets/previews/ebike-ai.webp" width="1024" height="576" alt="AI 科普视频原片画面" loading="lazy" decoding="async">
+        </div>
+      </a>
+      <div class="contents-link reader-index">
+        <div class="contents-copy">
+          <span class="contents-number" aria-hidden="true">03</span>
+          <h3 class="contents-title" id="index-reader">弓米瑞盯</h3>
+          <div class="contents-type">AI 辅助开发 / 交互设计 / 数字阅读工具</div>
+          <p>一个逐行 PDF 专注阅读器，让视线跟着当前一行，给长文本留一点阅读的余地。</p>
+          <a class="contents-cta" id="action-reader" href="#reader" aria-labelledby="index-reader action-reader">查看详情 <span class="arr" aria-hidden="true">↗</span></a>
+        </div>
+        <div class="thumb thumb-reader">
+          <iframe class="reader-frame" src="assets/逐行-PDF专注阅读器.html" loading="lazy" sandbox="allow-scripts" tabindex="-1" inert aria-hidden="true" title="弓米瑞盯原始界面预览"></iframe>
+          <span class="preview-label">原始界面</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="details wrap" id="details" aria-labelledby="details-title">
+    <div class="section-kicker meta muted"><span class="label-pair"><span class="mark" aria-hidden="true"></span> 03 / <span lang="en">Features</span></span><span lang="en">Behind the work</span></div>
+    <h2 class="heading-group" id="details-title"><span class="section-title" lang="en">Inside the work</span><span class="section-cn">作品详览</span></h2>
+    <div class="features">
+      <article id="apple" aria-labelledby="apple-title" tabindex="-1">
+        <header>
+          <div class="feature-top"><span class="meta red">01 / <span lang="en">Data Story</span></span><span class="meta muted">数据新闻 · 团队作品</span></div>
+          <div class="feature-head">
+            <div><h3 class="feature-title" id="apple-title">苹果味出走记</h3><p class="feature-subtitle">当苹果味不再属于苹果</p></div>
+            <p class="feature-deck">当「苹果味」出现在越来越多的产品里，它还意味着真实的苹果吗？我们从货架上的产品与营养标签出发，观察口味、健康认知与商业传播的关系。</p>
+          </div>
+        </header>
+        <div class="apple-grid">
+          <figure>
+            <a class="plate-apple" id="chart-zoom" href="assets/previews/apple-chart-detail.webp" aria-label="放大查看营养对比图">
+              <img src="assets/previews/apple-chart.webp" width="522" height="575" alt="苹果与苹果味饮料的膳食纤维、维生素 C、钾与槲皮素对比雷达图" loading="lazy" decoding="async">
+              <span class="chart-action">放大查看 <span class="arr" aria-hidden="true">↗</span></span>
+            </a>
+            <figcaption><span class="fig-no meta">Fig. 01</span> 原作 PDF 第 5 页节选 · 苹果与苹果味饮料的营养对比</figcaption>
+          </figure>
+          <div class="feature-copy">
+            <h4>叙事目标</h4>
+            <p>用长页面串联产品观察、营养对比、图表与消费文化分析，让读者顺着一个熟悉的味道，重新理解「有苹果味」与「含有苹果」之间的区别。</p>
+            <h4>我在团队中的工作</h4>
+            <ul>
+              <li>研究并整理健康认知板块的资料。</li>
+              <li>比较苹果与苹果味饮料的营养信息。</li>
+              <li>制作数据可视化图表，参与相关网页内容的编排与视觉呈现。</li>
+            </ul>
+            <div class="pdf-actions">
+              <a class="small-link pdf-link" href="assets/apple-project.pdf">查看完整作品 <span class="meta muted">PDF</span><span class="arr" aria-hidden="true">→</span></a>
+              <a class="pdf-download" href="assets/apple-project.pdf" download="apple-project.pdf">下载 PDF</a>
+            </div>
+            <p class="note">PDF 为原始长页面的静态存档。</p>
+          </div>
+        </div>
+      </article>
+
+      <article id="ebike" aria-labelledby="ebike-title" tabindex="-1">
+        <header>
+          <div class="feature-top"><span class="meta red">02 / <span lang="en">Media Desk</span></span><span class="meta muted">新媒体运营 · 短视频</span></div>
+          <div class="feature-head">
+            <div><h3 class="feature-title" id="ebike-title"><em lang="en">ebike</em>益骑行</h3><p class="feature-subtitle">电动自行车行业研究与安全公益平台</p></div>
+            <p class="feature-deck">围绕电动自行车行业资讯与骑行安全，把资料整理成公众号图文和短视频，让行业话题与安全知识更容易理解。</p>
+          </div>
+        </header>
+        <div class="bike-grid">
+          <div>
+            <figure>
+              <div class="account-plate"><img src="assets/ebike-account.png" width="1086" height="1608" alt="ebike益骑行公众号原始主页截图，展示账号介绍和近期内容" loading="lazy" decoding="async"></div>
+              <figcaption><span class="fig-no meta">Fig. 02</span> 微信公众号「ebike益骑行」主页</figcaption>
+            </figure>
+            <div class="feature-copy bike-copy">
+              <h4>我参与的工作</h4>
+              <p>搜集资料、准备选题，撰写并编辑排版公众号图文；参与 AI 视频生成和素材制作、剪辑与后期，并参与公众号与视频号内容发布。</p>
+              <a class="small-link" href="assets/ebike-account.png" target="_blank" rel="noopener">查看公众号截图原图 <span class="arr" aria-hidden="true">↗</span><span class="sr">（在新标签页打开）</span></a>
+            </div>
+          </div>
+          <div class="screening" role="group" aria-labelledby="screening-title">
+            <div class="screening-head"><h4 id="screening-title">视频放映</h4><span class="meta muted" lang="en">03 films</span></div>
+            <div class="screening-grid">
+              <!-- All reels keep their original file and use the browser's native controls. -->
+              <figure class="reel portrait">
+                <video controls playsinline preload="none" poster="assets/previews/ebike-2.webp" src="assets/ebike 视频号 2.mp4" aria-labelledby="film-2"></video>
+                <figcaption><span class="fig-no meta">Film 01 / 01:02</span><strong id="film-2">骑行安全与交通秩序</strong><a href="assets/ebike 视频号 2.mp4" target="_blank" rel="noopener">打开原片<span class="sr">（在新标签页打开）</span></a></figcaption>
+              </figure>
+              <div class="horizontal-reels">
+                <figure class="reel">
+                  <video controls playsinline preload="none" poster="assets/previews/ebike-3.webp" src="assets/ebike 视频号 3.mp4" aria-labelledby="film-3"></video>
+                  <figcaption><span class="fig-no meta">Film 02 / 00:47</span><strong id="film-3">私自改装电动自行车的风险</strong><a href="assets/ebike 视频号 3.mp4" target="_blank" rel="noopener">打开原片<span class="sr">（在新标签页打开）</span></a></figcaption>
+                </figure>
+                <figure class="reel">
+                  <video controls playsinline preload="none" poster="assets/previews/ebike-ai.webp" src="assets/ebike ai 科普视频 1.mp4" aria-labelledby="film-ai"></video>
+                  <figcaption><span class="fig-no meta">Film 03 / 00:43</span><strong id="film-ai">电动两轮车选购科普</strong><a href="assets/ebike ai 科普视频 1.mp4" target="_blank" rel="noopener">打开原片<span class="sr">（在新标签页打开）</span></a></figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article id="reader" aria-labelledby="reader-title" tabindex="-1">
+        <header>
+          <div class="feature-top"><span class="meta red">03 / <span lang="en">Reading Room</span></span><span class="meta muted">AI 辅助开发 · 交互设计</span></div>
+          <div class="feature-head">
+            <div><h3 class="feature-title" id="reader-title">弓米瑞盯</h3><p class="feature-subtitle">逐行 PDF 专注阅读器</p></div>
+            <p class="feature-deck">读长文时，能不能只把注意力放在当前一行？我尝试把这个问题做成一个可以打开 PDF、调整阅读视野并记录笔记的网页工具。</p>
+          </div>
+        </header>
+        <figure class="reader-stage">
+          <iframe class="reader-frame" src="assets/逐行-PDF专注阅读器.html" loading="lazy" sandbox="allow-scripts" tabindex="-1" inert aria-hidden="true" title="弓米瑞盯原始界面预览"></iframe>
+          <figcaption><span class="fig-no meta">Fig. 03</span> 弓米瑞盯 · 原始阅读器界面预览</figcaption>
+        </figure>
+        <div class="feature-copy reader-copy">
+          <div>
+            <h4>交互设计与实现</h4>
+            <p>我用 AI 辅助开发，将逐行聚焦和可调的周边淡化融入 PDF 阅读界面。工具也提供打开 PDF、翻页、缩放、多文档切换，以及高亮、下划线、评论和书签等阅读辅助功能。</p>
+          </div>
+          <div class="usage">
+            <h4>体验原始网页</h4>
+            <p>可打开本地 PDF 或使用内置样本试读。PDF 阅读和内置英汉词典可离线使用；在阅读器内直接向 AI 提问需要配套的本地服务。独立网页提供复制提示词和跳转到外部 AI 服务的入口，翻译则取决于浏览器支持和可用服务。</p>
+            <a class="small-link" href="assets/逐行-PDF专注阅读器.html" target="_blank" rel="noopener">体验阅读器 <span class="arr" aria-hidden="true">↗</span><span class="sr">（在新标签页打开）</span></a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+<footer class="colophon" id="colophon">
+  <div class="wrap">
+    <div class="colophon-main">
+      <div>
+        <p class="meta red label-pair"><span class="mark" aria-hidden="true"></span> 04 / <span lang="en">Colophon</span></p>
+        <p class="colophon-title">周雨彤 <span lang="en">— PORTFOLIO 2026</span></p>
+        <p class="note">新闻传播 / 新媒体创作 / AIGC / 交互设计</p>
+        <!-- 如需公开联系方式，可在此加入经本人确认的联系信息。 -->
+      </div>
+      <a class="small-link" href="#top">返回封面 <span class="arr" aria-hidden="true">↑</span></a>
+    </div>
+    <div class="folio"><span class="meta">© 2026 周雨彤</span><span class="meta" lang="en">End of issue / 01</span></div>
+  </div>
+</footer>
+<dialog class="chart-dialog" id="chart-dialog" aria-labelledby="chart-title" aria-describedby="chart-help">
+  <div class="chart-dialog-head">
+    <div>
+      <h2 id="chart-title">苹果与苹果味饮料的营养对比</h2>
+      <p class="note" id="chart-help">原作第 5 页节选 · 可在图表区域滑动查看细节</p>
+    </div>
+    <form method="dialog"><button class="chart-close" autofocus>关闭 <span aria-hidden="true">×</span></button></form>
+  </div>
+  <div class="chart-scroll" tabindex="0" role="region" aria-label="可滚动的营养对比图">
+    <img id="chart-full" width="949" height="1045" alt="苹果与苹果味饮料的膳食纤维、维生素 C、钾与槲皮素对比雷达图" decoding="async">
+  </div>
+</dialog>
+<script>
+  (() => {
+    const trigger = document.getElementById('chart-zoom');
+    const dialog = document.getElementById('chart-dialog');
+    const image = document.getElementById('chart-full');
+    const viewport = dialog.querySelector('.chart-scroll');
+    if (typeof dialog.showModal !== 'function') return;
+
+    trigger.setAttribute('aria-haspopup', 'dialog');
+    trigger.addEventListener('click', (event) => {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      if (!image.hasAttribute('src')) image.src = trigger.href;
+      dialog.showModal();
+      event.preventDefault();
+      viewport.scrollTo(0, 0);
+    });
+    dialog.addEventListener('close', () => trigger.focus({ preventScroll: true }));
+  })();
+</script>
+</body>
+</html>
